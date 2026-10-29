@@ -10,18 +10,17 @@
 [ext_resource type="Script" uid="uid://bik0ptf77samo" path="res://scripts/walls.gd" id="8_ya4ey"]
 [ext_resource type="Script" uid="uid://cdhawt61s6u52" path="res://scripts/scoring_goals.gd" id="9_eb6dy"]
 [ext_resource type="Script" uid="uid://du8cift4jugun" path="res://scripts/scoreboard.gd" id="10_trceg"]
+[ext_resource type="Texture2D" uid="uid://byqv3nwb7xpxi" path="res://assets/PongPD Assets/PongPD Assets/Images/background.png" id="11_ya4ey"]
 
 [node name="Main" type="Node2D" unique_id=223298110]
 script = ExtResource("1_jyhfs")
 
-[node name="Arena" type="ColorRect" parent="." unique_id=494342597]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 1151.0
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1541130601]
+offset_top = -29.0
+offset_right = 1154.0
 offset_bottom = 645.0
-grow_horizontal = 2
-grow_vertical = 2
+texture = ExtResource("11_ya4ey")
+expand_mode = 1
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1155359595]
 script = ExtResource("2_tbgi4")
@@ -49,10 +48,14 @@ position = Vector2(-28, -27.5)
 scale = Vector2(0.5, 0.4811321)
 texture = ExtResource("3_sugp2")
 
-[node name="Walls" type="StaticBody2D" parent="." unique_id=994322662]
+[node name="Arena2" type="StaticBody2D" parent="." unique_id=994322662]
 script = ExtResource("8_ya4ey")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=963003868]
+[node name="Walls" type="CollisionShape2D" parent="Arena2" unique_id=963003868]
+
+[node name="Divider" type="CollisionShape2D" parent="Arena2" unique_id=407777954]
+
+[node name="Sprite2D" type="Sprite2D" parent="Arena2/Divider" unique_id=1780229959]
 
 [node name="ScoringGoals" type="Area2D" parent="." unique_id=2067273655]
 script = ExtResource("9_eb6dy")
