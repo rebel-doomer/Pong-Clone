@@ -1,0 +1,35 @@
+[gd_scene format=3 uid="uid://bq0eu4ihy7sci"]
+
+[node name="Main" type="Node2D" unique_id=223298110]
+
+[node name="Player" type="CharacterBody2D" parent="." unique_id=1155359595]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=957754357]
+
+[node name="Sprite" type="Sprite2D" parent="Player" unique_id=884334964]
+
+[node name="CPU" type="CharacterBody2D" parent="." unique_id=1531014393]
+
+[node name="Sprite" type="Sprite2D" parent="CPU" unique_id=43225693]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CPU" unique_id=1789715000]
+
+[node name="Ball" type="CharacterBody2D" parent="." unique_id=464161434]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2021344457]
+
+[node name="Sprite" type="Sprite2D" parent="Ball" unique_id=1369278730]
+
+[node name="Walls" type="StaticBody2D" parent="." unique_id=994322662]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Walls" unique_id=963003868]
+
+[node name="ScoringGoals" type="Area2D" parent="." unique_id=2067273655]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringGoals" unique_id=955028077]
+
+[node name="UIscoreboard" type="CanvasLayer" parent="." unique_id=673814544]
+
+[node name="Label" type="Label" parent="UIscoreboard" unique_id=899086290]
+offset_right = 40.0
+offset_bottom = 23.0
