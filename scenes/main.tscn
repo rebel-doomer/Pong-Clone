@@ -12,11 +12,23 @@
 [ext_resource type="Script" uid="uid://du8cift4jugun" path="res://scripts/scoreboard.gd" id="10_trceg"]
 [ext_resource type="Texture2D" uid="uid://byqv3nwb7xpxi" path="res://assets/PongPD Assets/PongPD Assets/Images/background.png" id="11_ya4ey"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a8y0u"]
+size = Vector2(80, 79)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jkv2x"]
+size = Vector2(79, 80)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_jbj1t"]
+radius = 24.33105
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
-size = Vector2(1163, 37)
+size = Vector2(1214, 15)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ya4ey"]
 size = Vector2(7, 673)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_trceg"]
+size = Vector2(1169, 19)
 
 [node name="Main" type="Node2D" unique_id=223298110]
 script = ExtResource("1_jyhfs")
@@ -29,66 +41,68 @@ texture = ExtResource("11_ya4ey")
 expand_mode = 1
 
 [node name="Player" type="CharacterBody2D" parent="." unique_id=1155359595]
-visible = false
 script = ExtResource("2_tbgi4")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player" unique_id=957754357]
+position = Vector2(40, 278.5)
+shape = SubResource("RectangleShape2D_a8y0u")
 
 [node name="Sprite" type="Sprite2D" parent="Player" unique_id=884334964]
+position = Vector2(40, 278)
 texture = ExtResource("1_0wfyh")
+flip_h = true
 
 [node name="CPU" type="CharacterBody2D" parent="." unique_id=1531014393]
-visible = false
 script = ExtResource("4_tefeu")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CPU" unique_id=1789715000]
+position = Vector2(1111.5, 278)
+shape = SubResource("RectangleShape2D_jkv2x")
 
 [node name="Sprite" type="Sprite2D" parent="CPU" unique_id=43225693]
+position = Vector2(1112, 278)
 texture = ExtResource("2_sugp2")
 
 [node name="Ball" type="CharacterBody2D" parent="." unique_id=464161434]
-visible = false
 script = ExtResource("6_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2021344457]
+position = Vector2(578, 303)
+shape = SubResource("CircleShape2D_jbj1t")
 
 [node name="Sprite" type="Sprite2D" parent="Ball" unique_id=1369278730]
-position = Vector2(-28, -27.5)
+position = Vector2(578, 303)
 scale = Vector2(0.5, 0.4811321)
 texture = ExtResource("3_sugp2")
 
 [node name="Arena2" type="StaticBody2D" parent="." unique_id=994322662]
 script = ExtResource("8_ya4ey")
 
-[node name="Walls" type="CollisionShape2D" parent="Arena2" unique_id=963003868]
+[node name="TopWall" type="StaticBody2D" parent="Arena2" unique_id=326263543]
 position = Vector2(575.5, -44.5)
-shape = SubResource("RectangleShape2D_eb6dy")
 
-[node name="Walls" type="CollisionShape2D" parent="Arena2/Walls" unique_id=1868598520]
-position = Vector2(3.5, 705.5)
-shape = SubResource("RectangleShape2D_eb6dy")
-
-[node name="Walls" type="CollisionShape2D" parent="Arena2/Walls/Walls" unique_id=844081920]
-position = Vector2(591, -341)
-rotation = -1.5707964
-shape = SubResource("RectangleShape2D_eb6dy")
-
-[node name="Walls" type="CollisionShape2D" parent="Arena2/Walls/Walls/Walls" unique_id=1714906132]
-position = Vector2(-16.999939, -1187)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena2/TopWall" unique_id=628458681]
+position = Vector2(-0.5, 10)
 shape = SubResource("RectangleShape2D_eb6dy")
 
 [node name="Divider" type="CollisionShape2D" parent="Arena2" unique_id=407777954]
 position = Vector2(577.5, 307.5)
 shape = SubResource("RectangleShape2D_ya4ey")
 
+[node name="BottomWall" type="StaticBody2D" parent="Arena2" unique_id=69828953]
+position = Vector2(579, 661)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Arena2/BottomWall" unique_id=271741168]
+position = Vector2(-4.5, -9.5)
+shape = SubResource("RectangleShape2D_trceg")
+
 [node name="ScoringGoals" type="Area2D" parent="." unique_id=2067273655]
-visible = false
+position = Vector2(-2, 67)
 script = ExtResource("9_eb6dy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ScoringGoals" unique_id=955028077]
 
 [node name="UIscoreboard" type="CanvasLayer" parent="." unique_id=673814544]
-visible = false
 script = ExtResource("10_trceg")
 
 [node name="Label" type="Label" parent="UIscoreboard" unique_id=899086290]

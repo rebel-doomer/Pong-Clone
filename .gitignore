@@ -1,3 +1,10 @@
 # Godot 4+ specific ignores
 .godot/
 /android/
+AGENTS.md
+CLAUDE.md
+.agents/skills/todo-tracker/SKILL.md
+.cursor/mcp.json
+.gemini/mcp_config.json
+.vscode/justybase-favorites.json
+.vscode/mcp.json
