@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://4mn523chdb07"
+path="res://.godot/imported/launch.wav-86fbf3b74385981e494ecd9c8795f378.sample"
+
+[deps]
+
+source_file="res://assets/PongPD Assets/PongPD Assets/Sounds/launch.wav"
+dest_files=["res://.godot/imported/launch.wav-86fbf3b74385981e494ecd9c8795f378.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

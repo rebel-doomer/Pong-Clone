@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://don1dolnnqkw2"
+path="res://.godot/imported/wallHit.wav-7acd83f6048417b2aee6e2892e84881f.sample"
+
+[deps]
+
+source_file="res://assets/PongPD Assets/PongPD Assets/Sounds/wallHit.wav"
+dest_files=["res://.godot/imported/wallHit.wav-7acd83f6048417b2aee6e2892e84881f.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
