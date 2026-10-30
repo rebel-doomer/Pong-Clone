@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dpq53walbhgbd"
+path="res://.godot/imported/point.wav-a55cbc97ef6577c65fa1ad109b953ef0.sample"
+
+[deps]
+
+source_file="res://assets/PongPD Assets/PongPD Assets/Sounds/point.wav"
+dest_files=["res://.godot/imported/point.wav-a55cbc97ef6577c65fa1ad109b953ef0.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
