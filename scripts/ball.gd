@@ -3,7 +3,7 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 # track if ball has been launched yet
-var is_moving := false
+var is_moving := false # the := creates a variable and automatically guesses its data type based on what is assigned to it.
 var velocity_vector := Vector2.ZERO
 
 
