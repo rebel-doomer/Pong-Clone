@@ -1,36 +1,28 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 400.0
 
-# track if ball has been launched yet
-var is_moving := false # the := creates a variable and automatically guesses its data type based on what is assigned to it.
+# Track if ball has been launched yet
+var is_moving := false
 var velocity_vector := Vector2.ZERO
 
-
 func _physics_process(delta: float) -> void:
-	# # If ball isn't moving yet, check for a start trigger aka listen for (first) input
-	if not is_moving():
-		# start when the player presses spacebar or a move key
+	# If ball isn't moving yet, wait for input to start
+	if not is_moving:
+		# Start when the player presses a move key
 		if Input.is_action_just_pressed("moveUp") or Input.is_action_pressed("moveDown"):
 			ball_start()
 		return # Stop running the rest of this function until it is launched
 
-# handle the movement/deceleration.
-	var direction := get_axis("ui_left", "ui_right")
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+	# Handle the movement: apply velocity vector scaled by speed
+	velocity = velocity_vector * SPEED
 
-# The Paddle: Moves only when you press a key (Input.get_axis). 
-# The Ball: Needs to move constantly on its own, without anyone touching the keyboard, 
-# and it needs to bounce when it hits a wall or paddle.
-# todo Add a ball that moves around the playfield and bounces off of the paddles and walls.
-	var listenForInput
-	if listenForInput == player("moveUp" or "moveDown")
-		ball_start()
-	else:
-		# do nothing, wait for keyboard/player input to begin first
+	var collision := move_and_slide()
+	if collision:
+		# Bounce logic goes here later
+		pass
 
-	move_and_slide()
-
-func ball_start():
+func ball_start() -> void:
+	is_moving = true
+	# Give the ball a starting diagonal direction (e.g., up and right)
+	velocity_vector = Vector2(1, -0.6).normalized()
