@@ -11,10 +11,11 @@ def _physics_process(x, y):
     if not is_moving:
         if Input.is_pressed("moveUp" or "moveDown"):
             ball_start()
-    else:
-        return
+        else:
+            return
 
 move_and_slide()
 
 def ball_start():
+    is_moving = True
     pass
