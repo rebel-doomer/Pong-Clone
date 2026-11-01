@@ -19,7 +19,7 @@ size = Vector2(80, 79)
 size = Vector2(79, 80)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_jbj1t"]
-radius = 24.33105
+radius = 14.0
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eb6dy"]
 size = Vector2(1214, 15)
@@ -67,12 +67,12 @@ texture = ExtResource("2_sugp2")
 script = ExtResource("6_choun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ball" unique_id=2021344457]
-position = Vector2(578, 303)
+position = Vector2(578, 308)
 shape = SubResource("CircleShape2D_jbj1t")
 
 [node name="Sprite" type="Sprite2D" parent="Ball" unique_id=1369278730]
-position = Vector2(578, 303)
-scale = Vector2(0.5, 0.4811321)
+position = Vector2(578, 308)
+scale = Vector2(0.30357113, 0.29952803)
 texture = ExtResource("3_sugp2")
 
 [node name="Arena2" type="StaticBody2D" parent="." unique_id=994322662]

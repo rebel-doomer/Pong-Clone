@@ -3,8 +3,8 @@ extends CharacterBody2D
 const SPEED = 300.0
 
 # todo create a very simple AI oponent
-
-"""func _physics_process(delta: float) -> void:
+# currently the code below mirrors the player meepit's movement, for testing purposes
+func _physics_process(delta: float) -> void:
 
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -14,4 +14,4 @@ const SPEED = 300.0
 	else:
 		velocity.y = move_toward(velocity.y, 0, SPEED)
 
-	move_and_slide()"""
+	move_and_slide()
