@@ -34,3 +34,11 @@ func ball_start() -> void:
 	is_moving = true
 	# Give the ball a starting diagonal direction (e.g., up and right)
 	velocity_vector = Vector2(1, 0.6).normalized()
+
+# Reset the ball to the center and make it wait for player input again
+func reset() -> void:
+	print("Ball reset function was triggered!") # <-- Add this line
+	is_moving = false
+	global_position = Vector2(640, 360)
+	velocity = Vector2.ZERO
+	velocity_vector = Vector2.ZERO
