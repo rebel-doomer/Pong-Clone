@@ -17,12 +17,14 @@ func _physics_process(delta: float) -> void:
 	# Handle the movement: apply velocity vector scaled by speed
 	velocity = velocity_vector * SPEED
 
+	# todo Amake ball bounces off of the paddles and walls.
+	# bounce/collision logic for the ball
 	var collision := move_and_slide()
-	if collision:
-		# Bounce logic goes here later
+	if is_moving: # finish this
+		
 		pass
 
 func ball_start() -> void:
 	is_moving = true
 	# Give the ball a starting diagonal direction (e.g., up and right)
-	velocity_vector = Vector2(1, -0.6).normalized()
+	velocity_vector = Vector2(1, 0.6).normalized()
