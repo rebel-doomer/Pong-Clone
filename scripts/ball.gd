@@ -19,10 +19,16 @@ func _physics_process(delta: float) -> void:
 
 	# todo Amake ball bounces off of the paddles and walls.
 	# bounce/collision logic for the ball
-	var collision := move_and_slide()
-	if is_moving: # finish this
+var collision := move_and_slide()
+	if collision:
+		# 1. Get the first collision object from the slide data
+		var slide_collision = get_slide_collision(0)
 		
-		pass
+		# 2. Get the surface normal from that collision
+		var normal = slide_collision.get_normal()
+		
+		# 3. Bounce your velocity vector off that normal
+		velocity_vector = velocity_vector.bounce(normal)
 
 func ball_start() -> void:
 	is_moving = true
