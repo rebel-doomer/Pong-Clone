@@ -5,7 +5,8 @@ extends Node2D
 func _ready() -> void:
 	pass # Replace with function body.
 
- # Detect when the ball leaves the playfield. Assign a point to the player who scored
+ # todo Detect when the ball leaves the playfield. 
+# todo Assign a point to the player who scored
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
@@ -19,7 +20,6 @@ handle the game loop:
 scripts on individual nodes (player, ball, CPU, etc.) 
 handle their own specific movement/logic
 """
-
 
 func _on_off_screen_body_entered(body: Node2D) -> void:
 	pass # Replace with function body.
