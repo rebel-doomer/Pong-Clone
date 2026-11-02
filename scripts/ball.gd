@@ -2,43 +2,34 @@ extends CharacterBody2D
 
 const SPEED: float = 400.0
 
-# Track if ball has been launched yet
 var is_moving: bool = false
 var velocity_vector: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	# If ball isn't moving yet, wait for input to start
 	if not is_moving:
-		# Start when the player presses a move key
-		if Input.is_action_just_pressed("moveUp") or Input.is_action_pressed("moveDown"):
+		velocity = Vector2.ZERO
+		# Press Spacebar (ui_accept), moveUp, or moveDown to launch the ball after reset
+		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("moveUp") or Input.is_action_just_pressed("moveDown"):
 			ball_start()
-		return # Stop running the rest of this function until it is launched
+		return
 
-	# Handle the movement: apply velocity vector scaled by speed
 	velocity = velocity_vector * SPEED
 
-	# Collision and bounce logic for the ball
 	var collision: bool = move_and_slide()
 	
 	if collision == true:
-		# Get the first collision object and store it explicitly in a variable
 		var slide_collision: KinematicCollision2D = get_slide_collision(0)
-		
-		# Get the surface normal from that saved object
-		var normal: Vector2 = slide_collision.get_normal()
-		
-		# Bounce the velocity vector off that normal
-		velocity_vector = velocity_vector.bounce(normal)
+		if slide_collision:
+			var normal: Vector2 = slide_collision.get_normal()
+			velocity_vector = velocity_vector.bounce(normal)
 
 func ball_start() -> void:
 	is_moving = true
-	# Give the ball a starting diagonal direction (e.g., up and right)
+	# Randomize or give a solid starting diagonal direction
 	velocity_vector = Vector2(1, 0.6).normalized()
 
-# Reset the ball to the center and make it wait for player input again
 func reset() -> void:
-	print("Ball reset function was triggered!") # <-- Add this line
 	is_moving = false
-	global_position = Vector2(640, 360)
 	velocity = Vector2.ZERO
 	velocity_vector = Vector2.ZERO
+	global_position = Vector2(500, 250) # Center of your playfield area
