@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
-const SPEED = 400.0
+const SPEED: float = 400.0
 
 # Track if ball has been launched yet
-var is_moving := false
-var velocity_vector := Vector2.ZERO
+var is_moving: bool = false
+var velocity_vector: Vector2 = Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
 	# If ball isn't moving yet, wait for input to start
@@ -17,9 +17,8 @@ func _physics_process(delta: float) -> void:
 	# Handle the movement: apply velocity vector scaled by speed
 	velocity = velocity_vector * SPEED
 
-	# todo Amake ball bounces off of the paddles and walls.
-	# bounce/collision logic for the ball
-var collision: bool = move_and_slide()
+	# Collision and bounce logic for the ball
+	var collision: bool = move_and_slide()
 	
 	if collision == true:
 		# Get the first collision object and store it explicitly in a variable
