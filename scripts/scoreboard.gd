@@ -9,3 +9,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+	# todo when the ball leaves the playfield, assign a point to the player who scored.
+	

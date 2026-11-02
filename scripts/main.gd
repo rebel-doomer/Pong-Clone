@@ -22,11 +22,9 @@ handle their own specific movement/logic
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_off_screen_body_entered(body: Node2D) -> void:
 	 # Explicitly check if the node that entered the area is named "Ball"
 	if body.name == "Ball": # todo Detect when the ball leaves the playfield.
-		("The ball has left the playfield!")
 		# Check which side of the screen the ball exited to assign the point explicitly
 		if body.global_position.x < 0.0:
 			player_two_score = player_two_score + 1
