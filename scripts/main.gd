@@ -22,4 +22,7 @@ handle their own specific movement/logic
 """
 
 func _on_off_screen_body_entered(body: Node2D) -> void:
-	pass # Replace with function body.
+	# Explicitly check if the node that entered the area is named "Ball"
+	if body.name == "Ball":
+		print("The ball has left the playfield!")
+		
