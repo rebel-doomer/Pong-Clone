@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED: float = 400.0 # ball's speed in which it moves
+const INITIAL_SPEED: float = 500.0 # starting speed
+var speed: float = 500.0 # ball's speed in which it moves
 
 var is_moving: bool = false # this variable is a bool, very simple but handy to use, gets a lot of stuff done
 var velocity_vector: Vector2 = Vector2.ZERO # todo bad redundancy
@@ -19,7 +20,8 @@ func _physics_process(delta: float) -> void:
 			ball_start()
 		return
 		
-	velocity = velocity_vector * SPEED
+	# multiply by changing 'speed' variable instead of a fixed constant
+	velocity = velocity_vector * speed
 
 	var collision: bool = move_and_slide() 
 	# Tells the game that a collision occurred, but does not give details about it.
@@ -31,8 +33,13 @@ func _physics_process(delta: float) -> void:
 			var normal: Vector2 = slide_collision.get_normal()
 			velocity_vector = velocity_vector.bounce(normal) # note: normal. uses that information to bounce the ball away at the correct angle
 
+		# INCREASE SPEED UPON COLLISION
+			speed += 20.0
+			print("Ball speed increased to: ", speed) # Helpful debug print to see it working
+			
 func ball_start() -> void:
 	is_moving = true
+	speed = INITIAL_SPEED # Ensure it always starts at the baseline speed
 	
 	# Randomly choose left (-1) or right (1) direction
 	var random_direction_x = randf_range(-1.0, 1.0)
@@ -50,4 +57,5 @@ func reset() -> void:
 	is_moving = false
 	velocity = Vector2.ZERO # Redundant; ensures the ball stops.
 	velocity_vector = Vector2.ZERO # Redundant; ensures the ball stops.
+	speed = INITIAL_SPEED 
 	global_position = start_position # Snaps the ball back to its original editor position.
