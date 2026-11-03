@@ -24,5 +24,5 @@ func _on_off_screen_body_entered(body: Node2D) -> void:
 
 		score_label.text = str(player_one_score) + " - " + str(player_two_score)
 
-		# Safely reset the ball on the next frame
-		body.call_deferred("reset")
+		# note on deferred - postpone this until a safer moment.
+		body.call_deferred("reset") # note: before running the func reset, call_deferred allows waiting until current physics calculations are finished, and then executes the "reset" function on the very next physics frame safely
