@@ -1,28 +1,27 @@
 extends CharacterBody2D
 
-const SPEED: float = 400.0
+const SPEED: float = 400.0 # ball's speed in which it moves
 
-var is_moving: bool = false
-var velocity_vector: Vector2 = Vector2.ZERO
-var start_position: Vector2 = Vector2.ZERO
+var is_moving: bool = false # this variable is a bool, very simple but handy to use, gets a lot of stuff done
+var velocity_vector: Vector2 = Vector2.ZERO # todo bad redundancy
+var start_position: Vector2 = Vector2.ZERO # todo redundant
 
 func _ready() -> void:
-	# Automatically saves the exact position you placed the ball in the editor
+	# Automatically saves the exact position the ball was placed in the editor
 	start_position = global_position
 
 func _physics_process(delta: float) -> void:
 	if not is_moving:
-		velocity = Vector2.ZERO
+		velocity = Vector2.ZERO # todo so much redundancy to delete/fix later
 		# Press Spacebar (ui_accept), moveUp, or moveDown to launch the ball after reset
+		# ui accept is built into godot, the spacebar
 		if Input.is_action_just_pressed("ui_accept") or Input.is_action_just_pressed("moveUp") or Input.is_action_just_pressed("moveDown"):
 			ball_start()
 		return
-
 	velocity = velocity_vector * SPEED
 
 	var collision: bool = move_and_slide()
-	
-	if collision == true:
+		if collision == true:
 		var slide_collision: KinematicCollision2D = get_slide_collision(0)
 		if slide_collision:
 			var normal: Vector2 = slide_collision.get_normal()
