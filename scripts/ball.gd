@@ -22,12 +22,12 @@ func _physics_process(delta: float) -> void:
 
 	var collision: bool = move_and_slide() 
 		if collision == true: # tells the game that a collision has occured, but it doesn't give details about the crash. 
-		# creates a new variable to store the details of the crash.
-		# KinematicCollision2D: Godot's built-in way of labeling the type of data this is storing. This variable holds information about a physics collision.
-		var slide_collision: KinematicCollision2D = get_slide_collision(0) # This line grabs those details so the ball knows how to bounce.
-		if slide_collision:
+		# below, creates a new variable to store the details of the crash.
+		# note: KinematicCollision2D: Godot's built-in way of labeling the type of data this is storing. This variable holds information about a physics collision.
+		var slide_collision: KinematicCollision2D = get_slide_collision(0) # This line grabs those details so the ball knows how to bounce. set to 0 to only grab details of the very first indexed thing it detected during collision
+		if slide_collision: # note: get_normal() looks at the collision report to figure out which direction the wall or paddle's surface is facing.
 			var normal: Vector2 = slide_collision.get_normal()
-			velocity_vector = velocity_vector.bounce(normal)
+			velocity_vector = velocity_vector.bounce(normal) # note: normal. uses that information to bounce the ball away at the correct angle
 
 func ball_start() -> void:
 	is_moving = true
