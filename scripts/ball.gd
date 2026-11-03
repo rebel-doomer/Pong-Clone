@@ -20,9 +20,9 @@ func _physics_process(delta: float) -> void:
 		return
 	velocity = velocity_vector * SPEED
 
-	var collision: bool = move_and_slide()
-		if collision == true:
-		var slide_collision: KinematicCollision2D = get_slide_collision(0)
+	var collision: bool = move_and_slide() 
+		if collision == true: # tells the game that a collision has occured, but it doesn't give details about the crash. 
+		var slide_collision: KinematicCollision2D = get_slide_collision(0) # This line grabs those details so the ball knows how to bounce.
 		if slide_collision:
 			var normal: Vector2 = slide_collision.get_normal()
 			velocity_vector = velocity_vector.bounce(normal)
