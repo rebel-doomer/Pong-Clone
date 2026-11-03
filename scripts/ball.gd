@@ -22,7 +22,7 @@ func _physics_process(delta: float) -> void:
 	velocity = velocity_vector * SPEED
 
 	var collision: bool = move_and_slide() 
-	# tells the game that a collision has occured, but it doesn't give details about the crash. 
+	# Tells the game that a collision occurred, but does not give details about it.
 	if collision == true:
 		# below, creates a new variable to store the details of the crash.
 		# note: KinematicCollision2D: Godot's built-in way of labeling the type of data this is storing. This variable holds information about a physics collision.
@@ -48,6 +48,6 @@ func ball_start() -> void:
 
 func reset() -> void:
 	is_moving = false
-	velocity = Vector2.ZERO # redundancy
-	velocity_vector = Vector2.ZERO # redundancy
-	global_position = start_position # Snaps ball back to its original position (as set within the godot editor)
+	velocity = Vector2.ZERO # Redundant; ensures the ball stops.
+	velocity_vector = Vector2.ZERO # Redundant; ensures the ball stops.
+	global_position = start_position # Snaps the ball back to its original editor position.
