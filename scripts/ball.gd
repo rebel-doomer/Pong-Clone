@@ -46,6 +46,6 @@ func ball_start() -> void:
 
 func reset() -> void:
 	is_moving = false
-	velocity = Vector2.ZERO
-	velocity_vector = Vector2.ZERO
-	global_position = start_position # Snaps right back to its original editor position!
+	velocity = Vector2.ZERO # redundancy
+	velocity_vector = Vector2.ZERO # redundancy
+	global_position = start_position # Snaps ball back to its original position (as set within the godot editor)
