@@ -25,3 +25,6 @@ mono_crash.*.json
 # *.pck
 *.import
 *.json
+.cursor/mcp.json
+.gemini/mcp_config.json
+.vscode/mcp.json
